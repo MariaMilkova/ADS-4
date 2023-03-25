@@ -59,10 +59,17 @@ int countPairs2(int *arr, int len, int value) {
 }
 
 int countPairs3(int *arr, int len, int value) {
+    int i = 0;
     int count = 0;
-    for (int i = 0; i < len - 1; i++) {
+    int count2 = 0;
+    for (i; arr[i] < value / 2; i++) {
         int flag = i + 1;
-        count += cbinsearch(arr + flag, len - i, value - arr[i]);
+        count += cbinsearch(arr + flag, len - flag, value - arr[i]);
     }
-    return count;
+    for (i; arr[i] == value / 2; i++) {
+        int flag = i + 1;
+        count2 += cbinsearch(arr + flag, len - flag, value - arr[i]);
+    }
+    count2 /= 2;
+    return count + count2;
 }
