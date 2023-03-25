@@ -16,11 +16,9 @@ int cbinsearch(int* arr, int size, int value) {
                 count++;
             }
             return count;
-        }
-        else if (value < arr[mean]) {
+        } else if (value < arr[mean]) {
             end = mean - 1;
-        }
-        else if (value > arr[mean]) {
+        } else if (value > arr[mean]) {
             start = mean + 1;
         }
     }
@@ -50,7 +48,7 @@ int countPairs2(int *arr, int len, int value) {
             }
         }
         start++;
-        for (int j = end - 1; j > start; j--) {
+        for (int j = end - 1; j >= start; j--) {
             if (arr[end] + arr[j] == value) {
                 count++;
             }
